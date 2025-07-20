@@ -27,6 +27,8 @@ public class User {
 
     private String name;
 
+    private String passwordHash;
+
     @ManyToOne
     @JoinColumn(name = "role_id")
     private Role role;

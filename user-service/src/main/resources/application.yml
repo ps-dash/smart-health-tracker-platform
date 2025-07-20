@@ -6,6 +6,13 @@ spring:
     url: jdbc:postgresql://localhost:5432/user_service_db
     username: user_service_app
     password: postgres@123
+
+  security:
+    user:
+      name: parth
+      password: parth@123
+
+
 jpa:
   hibernate:
     ddl-auto: update

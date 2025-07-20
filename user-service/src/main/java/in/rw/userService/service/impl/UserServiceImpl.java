@@ -1,6 +1,7 @@
 package in.rw.userService.service.impl;
 
 import in.rw.userService.dto.UserDTO;
+import in.rw.userService.exception.UserNotFoundException;
 import in.rw.userService.model.Role;
 import in.rw.userService.model.User;
 import in.rw.userService.repository.RoleRepository;
@@ -41,12 +42,12 @@ public class UserServiceImpl implements UserService {
                 })
                 .orElseThrow(() -> {
                     String errorMessage = format("User not found for id: {0}", id);
-                    RuntimeException e = new EntityNotFoundException(errorMessage);
+                    UserNotFoundException ex = new UserNotFoundException(errorMessage);
                     log.atError()
-                            .setCause(e)
+                            .setCause(ex)
                             .addMarker(ERROR)
                             .log(errorMessage);
-                    return e;
+                    return ex;
                 });
     }
 

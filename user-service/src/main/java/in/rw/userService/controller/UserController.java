@@ -4,6 +4,7 @@ import in.rw.userService.dto.UserDTO;
 import in.rw.userService.service.UserService;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -16,9 +17,11 @@ public class UserController {
     private final UserService userService;
 
     @Autowired
-    public UserController(UserService userService) {
+    public UserController(UserService userService, AuthenticationManager authManager) {
         this.userService = userService;
     }
+
+//    public User
 
     @GetMapping("/{id}")
     public UserDTO getUserProfile(@PathVariable Long id) {
